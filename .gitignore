@@ -1,3 +1,9 @@
+.idea/
+build/
+config/*
+!config/sample.js
+.node-persist/
+
 # Logs
 logs
 *.log
