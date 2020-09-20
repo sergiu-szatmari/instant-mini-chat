@@ -1,4 +1,4 @@
-const serverURL = 'http://localhost:8080';
+const serverURL = 'http://localhost';
 
 const $ = (selector) => document.querySelector(selector);
 const button = $('button');

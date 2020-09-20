@@ -32,11 +32,12 @@ app.use('*', notFoundHandler);
 app.use(errorHandler);
 
 
-const socketServer = SocketIO(config.get('Server.socketPort') as number);
-socketServer.on(MessageType.CONNECTION, socketController.onConnection);
-
 const httpServer = http.createServer(app);
 const serverActions = ServerActions(httpServer, port);
+
+// const socketServer = SocketIO(config.get('Server.socketPort') as number);
+const socketServer = SocketIO(httpServer);
+socketServer.on(MessageType.CONNECTION, socketController.onConnection);
 
 httpServer.on('error', serverActions.onError);
 httpServer.on('listening', serverActions.onListening);
